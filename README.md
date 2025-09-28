@@ -1,29 +1,108 @@
-# Cow wisdom web server
+# 🐮 Wisecow: DevOps Trainee Assessment Project
 
-## Prerequisites
+## 📌 Overview
 
-```
-sudo apt install fortune-mod cowsay -y
-```
+Wisecow is a quirky Bash-based web server that delivers random quotes using `fortune` and `cowsay`. This project containerizes the app, deploys it on Kubernetes, secures it with TLS, and automates CI/CD using GitHub Actions.
 
-## How to use?
+---
 
-1. Run `./wisecow.sh`
-2. Point the browser to server port (default 4499)
+## 🚀 Features
 
-## What to expect?
-![wisecow](https://github.com/nyrahul/wisecow/assets/9133227/8d6bfde3-4a5a-480e-8d55-3fef60300d98)
+- 🐳 Dockerized Bash app with cowsay + fortune
+- ☸️ Kubernetes deployment with service exposure
+- 🔁 GitHub Actions CI/CD pipeline
+- 🔐 TLS-secured Ingress
+- 🧪 Bash scripts for system and app health checks
 
-# Problem Statement
-Deploy the wisecow application as a k8s app
+---
 
-## Requirement
-1. Create Dockerfile for the image and corresponding k8s manifest to deploy in k8s env. The wisecow service should be exposed as k8s service.
-2. Github action for creating new image when changes are made to this repo
-3. [Challenge goal]: Enable secure TLS communication for the wisecow app.
+## 🛠️ Setup Instructions
 
-## Expected Artifacts
-1. Github repo containing the app with corresponding dockerfile, k8s manifest, any other artifacts needed.
-2. Github repo with corresponding github action.
-3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul
-# Update
+### 🔹 Prerequisites
+
+To run locally:
+```bash
+sudo apt install fortune-mod cowsay netcat-traditional -y
+
+🔹 Docker Build & Run
+docker build -t sachyal/wisecow:latest .
+docker run -p 4499:4499 sachyal/wisecow:latest
+
+🔹 Kubernetes Deployment
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+Access the app via:
+http://<minikube-ip>:<node-port>
+
+🔐 TLS Setup
+TLS is configured via Ingress using a self-signed certificate or cert-manager. The app is accessible at:
+https://wisecow.local
+To Test:
+curl -k https://wisecow.local
+
+🔁 CI/CD Pipeline
+GitHub Actions automatically:
+
+Builds Docker image on push
+
+Pushes to DockerHub
+
+Workflow file
+.github/workflows/docker-deploy.yml
+
+Secrets used:
+
+DOCKER_USERNAME
+
+DOCKER_PASSWORD
+
+🧪 Bash Scripts
+✅ health_monitor.sh
+Monitors CPU, memory, and disk usage. Logs alerts if thresholds exceed.
+
+✅ app_health_check.sh
+Checks HTTP status of the app and reports if it's up or down.
+
+
+📁 Repo Structure
+wisecow/
+├── Dockerfile
+├── wisecow.sh
+├── deployment.yaml
+├── service.yaml
+├── ingress.yaml
+├── health_monitor.sh
+├── app_health_check.sh
+├── violation.png         # (optional)
+└── .github/
+    └── workflows/
+        └── docker-deploy.yml
+
+🛡️ KubeArmor Policy (Optional)
+A zero-trust policy was attempted to block access to /etc/shadow. Due to setup issues, this step was skipped.
+
+👥 Access Control
+This repository is public. Access has been granted to:
+
+nyrahul
+
+✅ Submission Status
+All required components have been implemented and verified:
+
+[x] Dockerization
+
+[x] Kubernetes deployment
+
+[x] CI/CD pipeline
+
+[x] TLS setup
+
+[x] Bash scripts
+
+[ ] KubeArmor policy (optional)
+
+
+
+
+
