@@ -33,7 +33,6 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 kubectl apply -f ingress.yaml
 
----
 Access the app via:
 http://<minikube-ip>:<node-port>
 
@@ -111,6 +110,8 @@ All required components have been implemented and verified:
 [ ] KubeArmor policy (optional)
 
 ![CI/CD](https://github.com/sachyal/wisecow/actions/workflows/docker-deploy.yml/badge.svg)
+
+---
 
 
 
