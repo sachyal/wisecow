@@ -24,16 +24,18 @@ To run locally:
 ```bash
 sudo apt install fortune-mod cowsay netcat-traditional -y
 
-🔹 Docker Build & Run
+# 🔹 Docker Build & Run
 docker build -t sachyal/wisecow:latest .
 docker run -p 4499:4499 sachyal/wisecow:latest
 
-🔹 Kubernetes Deployment
+# 🔹 Kubernetes Deployment
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 kubectl apply -f ingress.yaml
+---
 Access the app via:
 http://<minikube-ip>:<node-port>
+
 
 🔐 TLS Setup
 TLS is configured via Ingress using a self-signed certificate or cert-manager. The app is accessible at:
@@ -56,6 +58,13 @@ Secrets used:
 DOCKER_USERNAME
 
 DOCKER_PASSWORD
+
+✅ Link to Repo and DockerHub Image
+Add these near the top:
+
+GitHub Repo: [View Repository](https://github.com/sachyal/wisecow)
+
+DockerHub Image: [View Image](https://hub.docker.com/r/sachyal/wisecow)
 
 🧪 Bash Scripts
 ✅ health_monitor.sh
@@ -101,6 +110,9 @@ All required components have been implemented and verified:
 [x] Bash scripts
 
 [ ] KubeArmor policy (optional)
+
+![CI/CD](https://github.com/sachyal/wisecow/actions/workflows/docker-deploy.yml/badge.svg)
+
 
 
 
