@@ -32,6 +32,7 @@ docker run -p 4499:4499 sachyal/wisecow:latest
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 kubectl apply -f ingress.yaml
+
 ---
 Access the app via:
 http://<minikube-ip>:<node-port>
@@ -60,8 +61,6 @@ DOCKER_USERNAME
 DOCKER_PASSWORD
 
 ✅ Link to Repo and DockerHub Image
-Add these near the top:
-
 GitHub Repo: [View Repository](https://github.com/sachyal/wisecow)
 
 DockerHub Image: [View Image](https://hub.docker.com/r/sachyal/wisecow)
