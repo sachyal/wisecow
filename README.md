@@ -24,11 +24,11 @@ To run locally:
 ```bash
 sudo apt install fortune-mod cowsay netcat-traditional -y
 
-# 🔹 Docker Build & Run
+### 🔹Docker Build & Run
 docker build -t sachyal/wisecow:latest .
 docker run -p 4499:4499 sachyal/wisecow:latest
 
-# 🔹 Kubernetes Deployment
+### 🔹 Kubernetes Deployment
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 kubectl apply -f ingress.yaml
@@ -37,13 +37,13 @@ Access the app via:
 http://<minikube-ip>:<node-port>
 
 
-🔐 TLS Setup
+### 🔐 TLS Setup
 TLS is configured via Ingress using a self-signed certificate or cert-manager. The app is accessible at:
 https://wisecow.local
 To Test:
 curl -k https://wisecow.local
 
-🔁 CI/CD Pipeline
+### 🔁 CI/CD Pipeline
 GitHub Actions automatically:
 
 Builds Docker image on push
@@ -59,20 +59,20 @@ DOCKER_USERNAME
 
 DOCKER_PASSWORD
 
-✅ Link to Repo and DockerHub Image
+### ✅ Link to Repo and DockerHub Image
 GitHub Repo: [View Repository](https://github.com/sachyal/wisecow)
 
 DockerHub Image: [View Image](https://hub.docker.com/r/sachyal/wisecow)
 
-🧪 Bash Scripts
-✅ health_monitor.sh
+### 🧪 Bash Scripts
+### ✅ health_monitor.sh
 Monitors CPU, memory, and disk usage. Logs alerts if thresholds exceed.
 
-✅ app_health_check.sh
+### ✅ app_health_check.sh
 Checks HTTP status of the app and reports if it's up or down.
 
 
-📁 Repo Structure
+### 📁 Repo Structure
 wisecow/
 ├── Dockerfile
 ├── wisecow.sh
@@ -86,15 +86,15 @@ wisecow/
     └── workflows/
         └── docker-deploy.yml
 
-🛡️ KubeArmor Policy (Optional)
+### 🛡️ KubeArmor Policy (Optional)
 A zero-trust policy was attempted to block access to /etc/shadow. Due to setup issues, this step was skipped.
 
-👥 Access Control
+### 👥 Access Control
 This repository is public. Access has been granted to:
 
 nyrahul
 
-✅ Submission Status
+### ✅ Submission Status
 All required components have been implemented and verified:
 
 [x] Dockerization
@@ -109,9 +109,9 @@ All required components have been implemented and verified:
 
 [ ] KubeArmor policy (optional)
 
-![CI/CD](https://github.com/sachyal/wisecow/actions/workflows/docker-deploy.yml/badge.svg)
-
 ---
+
+![CI/CD](https://github.com/sachyal/wisecow/actions/workflows/docker-deploy.yml/badge.svg)
 
 
 
